@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="SearchableSpinner">
-        <attr name="SearchableSpinner_HintText" format="string" />
-        <attr name="SearchableSpinner_TextColor" format="color" />
-        <attr name="SearchableSpinner_TextSize" format="dimension" />
-        <attr name="SearchableSpinner_Normal_Status_Background" format="reference" />
-        <attr name="SearchableSpinner_Drop_Status_Background" format="reference" />
-    </declare-styleable>
+
 
 </resources>

@@ -18,13 +18,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final SearchableSpinner searchableSpinner = findViewById(R.id.searchableSpinner);
         List<String> items = new ArrayList<String>();
-        items.add("张四");
-        items.add("张三");
-        items.add("张五");
-        items.add("张六");
-        items.add("张七");
-        items.add("李四");
-        items.add("王二麻子");
-        searchableSpinner.setListItem(items);
+        items.add("张飞");
+        items.add("关羽");
+        items.add("赵云");
+        items.add("张翼德");
+        items.add("关云长");
+        items.add("赵子龙");
+        items.add("刘备");
+        items.add("刘玄德");
+        searchableSpinner.init(items, SearchableSpinner.filterMode_Prefix);
     }
 }

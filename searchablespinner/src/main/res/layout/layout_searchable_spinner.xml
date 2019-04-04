@@ -1,59 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-    <io.codetail.widget.RevealFrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/revealFrameLayout"
-        >
-        <RelativeLayout android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                         android:id="@+id/normal_status"
-                         android:background="@drawable/shape_my_spinner_normal_status"
-            >
+    <!-- 争夺默认焦点> -->
+    <TextView
+        android:id="@+id/rob_focus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textIsSelectable="true" />
 
-            <ImageView android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                          android:src="@drawable/ic_keyboard_arrow_down_grey_700_24dp"
-                          android:id="@+id/normal_status_arrow"
-                         android:layout_centerVertical="true"
-                         android:layout_alignParentRight="true"
-                         android:layout_marginRight="10dp"
-                >
 
-            </ImageView>
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinnerText"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toLeftOf="@+id/normal_status_arrow"
-                android:textSize="15dp"
-                android:textColor="#a6000000"
-                android:maxLines="1"
-                >
 
-            </TextView>
-        </RelativeLayout>
 
-        <RelativeLayout android:layout_width="match_parent"
-                          android:layout_height="match_parent"
-                          android:id="@+id/drop_status"
-                          android:background="@drawable/shape_my_spinner_drop_status"
-            >
 
             <com.testcity.liuyao.searchablespinner.MyAutoCompleteTextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinnerEdit"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
-                android:paddingLeft="10dp"
-                android:paddingRight="30dp"
                 android:textSize="14dp"
-                android:background="@android:color/transparent"
+
                 android:maxLines="1"
                 android:textColor="#a6000000"
                 >
@@ -61,27 +29,30 @@
             </com.testcity.liuyao.searchablespinner.MyAutoCompleteTextView>
             <ImageView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow_back_grey_400_24dp"
-                android:id="@+id/drop_status_arrow"
+                android:visibility="gone"
+                android:src="@drawable/ic_close_black_24dp"
+                android:id="@+id/delete_icon"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
+
+                >
+
+            </ImageView>
+            <ImageView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:src="@drawable/ic_keyboard_arrow_down_24dp_searchable"
+                android:id="@+id/down_icon"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+
                 >
 
             </ImageView>
 
-        </RelativeLayout>
-        <EditText android:layout_width="1px"
-            android:layout_height="1px"
-            android:maxLines="1"
-            android:textColor="@android:color/transparent"
-            android:textColorHint="@android:color/transparent"
-            android:background="@android:color/transparent"
-            android:textCursorDrawable="@android:color/transparent"
-            android:layout_gravity="right"
-            android:id="@+id/rob_focus"
-            >
 
-        </EditText>
-    </io.codetail.widget.RevealFrameLayout>
+
+
 </merge>

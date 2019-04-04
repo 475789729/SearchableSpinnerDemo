@@ -1,12 +1,8 @@
 package com.testcity.liuyao.searchablespinner;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AutoCompleteTextView;
 
 import java.util.Calendar;
@@ -53,7 +49,7 @@ public class MyAutoCompleteTextView extends AutoCompleteTextView {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         boolean result =  super.onTouchEvent(event);
-        if (!isEnabled())
+        if (!isEnabled() || getAdapter() == null)
             return false;
 
         switch (event.getAction()) {
@@ -75,8 +71,5 @@ public class MyAutoCompleteTextView extends AutoCompleteTextView {
         return result;
     }
 
-    public interface CustomFocusChangeListener{
-           public void onFocusChanged(boolean focused);
-    }
 
 }

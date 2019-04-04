@@ -1,7 +1,6 @@
 package com.testcity.liuyao.searchablespinner;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +17,12 @@ public class AutoTextViewAdapter extends BaseAdapter implements Filterable {
     private Context context;
     private List<String> allItem;
     private List<String> filterItems;
+    private String filterMode;
 
-    public AutoTextViewAdapter(Context context, List<String> allItem){
+    public AutoTextViewAdapter(Context context, List<String> allItem, String filterMode){
         this.context = context;
         this.allItem = allItem;
+        this.filterMode = filterMode;
         filterItems = new ArrayList<String>();
     }
     @Override
@@ -37,6 +38,14 @@ public class AutoTextViewAdapter extends BaseAdapter implements Filterable {
     @Override
     public long getItemId(int position) {
         return position;
+    }
+
+    public String getFilterMode() {
+        return filterMode;
+    }
+
+    public void setFilterMode(String filterMode) {
+        this.filterMode = filterMode;
     }
 
     @Override
@@ -96,9 +105,16 @@ public class AutoTextViewAdapter extends BaseAdapter implements Filterable {
                 filterItems.addAll(allItem);
             }else{
                 for(String str : allItem){
-                    if(str.contains(constraint)){
-                        filterItems.add(str);
+                    if(SearchableSpinner.filterMode_Contains.equals(filterMode)){
+                        if(str.contains(constraint)){
+                            filterItems.add(str);
+                        }
+                    }else if(SearchableSpinner.filterMode_Prefix.equals(filterMode)){
+                        if(str.startsWith(constraint.toString())){
+                            filterItems.add(str);
+                        }
                     }
+
                 }
             }
             filterResults.values = filterItems;
