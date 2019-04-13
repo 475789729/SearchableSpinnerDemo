@@ -38,6 +38,9 @@ public class MyAutoCompleteTextView extends AutoCompleteTextView {
     //覆盖父类方法，使得可以0输入的时候也产生下拉框选择，默认至少需要1个字符的输入
     @Override
     public boolean enoughToFilter() {
+        if (!isEnabled() || getAdapter() == null){
+            return false;
+        }
         if(getText().length() == 0){
             return true;
         }else{
@@ -48,9 +51,10 @@ public class MyAutoCompleteTextView extends AutoCompleteTextView {
     //增加下拉框显示的机会。
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        boolean result =  super.onTouchEvent(event);
-        if (!isEnabled() || getAdapter() == null)
+
+        if (!isEnabled() || getAdapter() == null){
             return false;
+        }
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: {
@@ -65,10 +69,10 @@ public class MyAutoCompleteTextView extends AutoCompleteTextView {
                          showDropDown();
                      }
                 }
+                break;
             }
         }
-
-        return result;
+        return super.onTouchEvent(event);
     }
 
 
